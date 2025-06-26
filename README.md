@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,31 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# 🚕 Cab Bidding System
+
+An interactive React-based Cab Bidding System simulating a live auction process for cab bookings.
+
+## 🌟 Features
+- Enter pickup and drop location before bidding
+- Real-time bidding from simulated drivers
+- 60s bidding phase + 15s selection phase
+- Auto-selects lowest bid if user doesn't choose
+- Light/Dark mode toggle (saved in local storage)
+- Fully responsive UI with React Hooks
+
+## 🧠 Skills Demonstrated
+- State & effect management using React
+- Timer-based workflows and auto-updating UI
+- Dynamic rendering of components based on state
+- Theme toggling and user experience handling
+
+## 📸 Preview
+![preview](./preview.png) <!-- Add a screenshot if available -->
+
+## 🔧 Getting Started
+
+```bash
+npm install
+npm start
+>>>>>>> 48ed4ec4ebbe8d6e3e305a22899f3bc72e030783
