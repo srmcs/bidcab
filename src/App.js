@@ -66,6 +66,15 @@ function App() {
   const [timer, setTimer] = useState(60);
   const [selectionTimer, setSelectionTimer] = useState(15);
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [suggestedPrice, setSuggestedPrice] = useState('');
+  const [useSuggestedPrice, setUseSuggestedPrice] = useState(false);
+  const lastBidRef = React.useRef(null);
+  // Scroll to last bid when bids change
+  useEffect(() => {
+    if (lastBidRef.current) {
+      lastBidRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [bids]);
 
   useEffect(() => {
     document.body.className = theme;
@@ -109,7 +118,15 @@ function App() {
     if (!biddingActive || !pickup.coords || !drop.coords) return;
     const distance = calculateDistance(pickup.coords, drop.coords);
     const bidInterval = setInterval(() => {
-      const fare = (parseFloat(distance) * (10 + Math.random() * 5)).toFixed(0);
+      let fare;
+      if (useSuggestedPrice && suggestedPrice && !isNaN(Number(suggestedPrice))) {
+        // Drivers may bid around the suggested price, +/- up to 20%
+        const min = Number(suggestedPrice) * 0.8;
+        const max = Number(suggestedPrice) * 1.2;
+        fare = (Math.random() * (max - min) + min).toFixed(0);
+      } else {
+        fare = (parseFloat(distance) * (10 + Math.random() * 5)).toFixed(0);
+      }
       const newBid = {
         driverName: `Driver ${Math.floor(Math.random() * 1000)}`,
         avatar: `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70)}`,
@@ -121,7 +138,7 @@ function App() {
       setBids((prev) => [...prev, newBid]);
     }, 5000);
     return () => clearInterval(bidInterval);
-  }, [biddingActive, pickup, drop]);
+  }, [biddingActive, pickup, drop, suggestedPrice, useSuggestedPrice]);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
@@ -179,6 +196,30 @@ function App() {
           placeholder="Type or click on map"
         />
       </div>
+      <div style={{ margin: '10px 0' }}>
+        <label>
+          <input
+            type="checkbox"
+            checked={useSuggestedPrice}
+            onChange={e => setUseSuggestedPrice(e.target.checked)}
+            style={{ marginRight: 6 }}
+          />
+          Suggest a Price
+        </label>
+        {useSuggestedPrice && (
+          <input
+            type="number"
+            min="0"
+            value={suggestedPrice}
+            onChange={e => setSuggestedPrice(e.target.value)}
+            placeholder="e.g. 250"
+            style={{ width: 120, marginLeft: 10, marginRight: 10, padding: '6px 10px', borderRadius: 6, border: '1px solid #ccc', fontSize: 16 }}
+            inputMode="numeric"
+            step="1"
+            autoFocus
+          />
+        )}
+      </div>
 
       <MapContainer center={[28.61, 77.23]} zoom={12} style={{ height: '400px', width: '100%' }}>
         <TileLayer
@@ -221,9 +262,12 @@ function App() {
         </div>
       )}
 
-      <ul>
+      <ul style={{ maxHeight: 200, overflowY: 'auto' }}>
         {bids.map((bid, index) => (
-          <li key={index}>
+          <li
+            key={index}
+            ref={index === bids.length - 1 ? lastBidRef : null}
+          >
             <img src={bid.avatar} alt="Driver" style={{ width: 30, borderRadius: '50%', marginRight: 10 }} />
             {bid.driverName} - ₹{bid.amount} ⭐{bid.rating} | {bid.distance} | ETA: {bid.eta}
             {!selectedBid && (
