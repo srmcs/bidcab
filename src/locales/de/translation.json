@@ -1,0 +1,89 @@
+{
+  "app": {
+    "title": "Taxi-Auktionssystem",
+    "slogan": "Finden Sie Ihre perfekte Fahrt mit wettbewerbsfähigen Angeboten"
+  },
+  "location": {
+    "pickup": "Abholort",
+    "dropoff": "Zielort",
+    "detectMyLocation": "Meinen Standort Erkennen",
+    "enterPickupLocation": "Abholort eingeben",
+    "enterDropoffLocation": "Zielort eingeben",
+    "searchingLocation": "Standort wird gesucht...",
+    "locationDetected": "Standort erkannt",
+    "locationError": "Fehler beim Erkennen des Standorts"
+  },
+  "booking": {
+    "findRide": "Fahrt Finden",
+    "bookNow": "Jetzt Buchen",
+    "selectRide": "Fahrt Auswählen",
+    "rideDetails": "Fahrtdetails",
+    "estimatedTime": "Geschätzte Zeit",
+    "distance": "Entfernung",
+    "fare": "Fahrpreis",
+    "driverDetails": "Fahrerdetails",
+    "vehicleDetails": "Fahrzeugdetails",
+    "bookingConfirmed": "Buchung Bestätigt",
+    "bookingCancelled": "Buchung Storniert"
+  },
+  "driver": {
+    "name": "Fahrername",
+    "rating": "Bewertung",
+    "experience": "Erfahrung",
+    "vehicleType": "Fahrzeugtyp",
+    "vehicleNumber": "Fahrzeugnummer",
+    "arrivalTime": "Ankunftszeit",
+    "contact": "Kontakt",
+    "years": "Jahre"
+  },
+  "bidding": {
+    "availableRides": "Verfügbare Fahrten",
+    "noBidsYet": "Noch keine Gebote",
+    "waitingForBids": "Warten auf Gebote...",
+    "bidsReceived": "Gebote erhalten",
+    "selectBestOffer": "Bestes Angebot auswählen",
+    "bidExpired": "Gebot abgelaufen",
+    "bidAccepted": "Gebot angenommen",
+    "bidRejected": "Gebot abgelehnt"
+  },
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "search": "Suchen",
+    "filter": "Filter",
+    "sort": "Sortieren",
+    "refresh": "Aktualisieren",
+    "close": "Schließen",
+    "ok": "OK",
+    "yes": "Ja",
+    "no": "Nein",
+    "minutes": "Minuten",
+    "hours": "Stunden",
+    "km": "km",
+    "currency": "€"
+  },
+  "notifications": {
+    "newBid": "Neues Gebot erhalten",
+    "rideConfirmed": "Fahrt bestätigt",
+    "rideStarted": "Fahrt gestartet",
+    "rideCompleted": "Fahrt abgeschlossen",
+    "paymentPending": "Zahlung ausstehend",
+    "paymentCompleted": "Zahlung abgeschlossen"
+  },
+  "errors": {
+    "networkError": "Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.",
+    "locationPermission": "Standortberechtigung ist erforderlich, um Ihren Standort zu erkennen",
+    "invalidLocation": "Ungültiger Standort",
+    "bookingFailed": "Buchung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "noBidsReceived": "Keine Gebote erhalten. Bitte versuchen Sie es erneut.",
+    "sessionExpired": "Sitzung abgelaufen. Bitte melden Sie sich erneut an."
+  }
+}

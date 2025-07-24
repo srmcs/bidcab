@@ -1,0 +1,89 @@
+{
+  "app": {
+    "title": "Sistema de Licitación de Taxis",
+    "slogan": "Encuentra tu viaje perfecto con ofertas competitivas"
+  },
+  "location": {
+    "pickup": "Ubicación de recogida",
+    "dropoff": "Ubicación de destino",
+    "detectMyLocation": "Detectar mi ubicación",
+    "enterPickupLocation": "Ingresa la ubicación de recogida",
+    "enterDropoffLocation": "Ingresa la ubicación de destino",
+    "searchingLocation": "Buscando ubicación...",
+    "locationDetected": "Ubicación detectada",
+    "locationError": "Error al detectar la ubicación"
+  },
+  "booking": {
+    "findRide": "Encontrar viaje",
+    "bookNow": "Reservar ahora",
+    "selectRide": "Seleccionar viaje",
+    "rideDetails": "Detalles del viaje",
+    "estimatedTime": "Tiempo estimado",
+    "distance": "Distancia",
+    "fare": "Tarifa",
+    "driverDetails": "Detalles del conductor",
+    "vehicleDetails": "Detalles del vehículo",
+    "bookingConfirmed": "Reserva confirmada",
+    "bookingCancelled": "Reserva cancelada"
+  },
+  "driver": {
+    "name": "Nombre del conductor",
+    "rating": "Calificación",
+    "experience": "Experiencia",
+    "vehicleType": "Tipo de vehículo",
+    "vehicleNumber": "Número de vehículo",
+    "arrivalTime": "Tiempo de llegada",
+    "contact": "Contacto",
+    "years": "años"
+  },
+  "bidding": {
+    "availableRides": "Viajes disponibles",
+    "noBidsYet": "Aún no hay ofertas",
+    "waitingForBids": "Esperando ofertas...",
+    "bidsReceived": "Ofertas recibidas",
+    "selectBestOffer": "Seleccionar la mejor oferta",
+    "bidExpired": "Oferta expirada",
+    "bidAccepted": "Oferta aceptada",
+    "bidRejected": "Oferta rechazada"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "refresh": "Actualizar",
+    "close": "Cerrar",
+    "ok": "OK",
+    "yes": "Sí",
+    "no": "No",
+    "minutes": "minutos",
+    "hours": "horas",
+    "km": "km",
+    "currency": "₹"
+  },
+  "notifications": {
+    "newBid": "Nueva oferta recibida",
+    "rideConfirmed": "Viaje confirmado",
+    "rideStarted": "Viaje iniciado",
+    "rideCompleted": "Viaje completado",
+    "paymentPending": "Pago pendiente",
+    "paymentCompleted": "Pago completado"
+  },
+  "errors": {
+    "networkError": "Error de red. Por favor, verifica tu conexión.",
+    "locationPermission": "Se requiere permiso de ubicación para detectar tu ubicación",
+    "invalidLocation": "Ubicación no válida",
+    "bookingFailed": "Falló la reserva. Por favor, inténtalo de nuevo.",
+    "noBidsReceived": "No se recibieron ofertas. Por favor, inténtalo de nuevo.",
+    "sessionExpired": "Sesión expirada. Por favor, inicia sesión de nuevo."
+  }
+}

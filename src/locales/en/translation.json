@@ -1,0 +1,89 @@
+{
+  "app": {
+    "title": "Cab Bidding System",
+    "slogan": "Find your perfect ride with competitive offers"
+  },
+  "location": {
+    "pickup": "Pickup Location",
+    "dropoff": "Drop-off Location",
+    "detectMyLocation": "Detect My Location",
+    "enterPickupLocation": "Enter pickup location",
+    "enterDropoffLocation": "Enter drop-off location",
+    "searchingLocation": "Searching location...",
+    "locationDetected": "Location detected",
+    "locationError": "Error detecting location"
+  },
+  "booking": {
+    "findRide": "Find Ride",
+    "bookNow": "Book Now",
+    "selectRide": "Select Ride",
+    "rideDetails": "Ride Details",
+    "estimatedTime": "Estimated Time",
+    "distance": "Distance",
+    "fare": "Fare",
+    "driverDetails": "Driver Details",
+    "vehicleDetails": "Vehicle Details",
+    "bookingConfirmed": "Booking Confirmed",
+    "bookingCancelled": "Booking Cancelled"
+  },
+  "driver": {
+    "name": "Driver Name",
+    "rating": "Rating",
+    "experience": "Experience",
+    "vehicleType": "Vehicle Type",
+    "vehicleNumber": "Vehicle Number",
+    "arrivalTime": "Arrival Time",
+    "contact": "Contact",
+    "years": "years"
+  },
+  "bidding": {
+    "availableRides": "Available Rides",
+    "noBidsYet": "No bids yet",
+    "waitingForBids": "Waiting for bids...",
+    "bidsReceived": "Bids received",
+    "selectBestOffer": "Select the best offer",
+    "bidExpired": "Bid expired",
+    "bidAccepted": "Bid accepted",
+    "bidRejected": "Bid rejected"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "refresh": "Refresh",
+    "close": "Close",
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No",
+    "minutes": "minutes",
+    "hours": "hours",
+    "km": "km",
+    "currency": "₹"
+  },
+  "notifications": {
+    "newBid": "New bid received",
+    "rideConfirmed": "Ride confirmed",
+    "rideStarted": "Ride started",
+    "rideCompleted": "Ride completed",
+    "paymentPending": "Payment pending",
+    "paymentCompleted": "Payment completed"
+  },
+  "errors": {
+    "networkError": "Network error. Please check your connection.",
+    "locationPermission": "Location permission is required to detect your location",
+    "invalidLocation": "Invalid location",
+    "bookingFailed": "Booking failed. Please try again.",
+    "noBidsReceived": "No bids received. Please try again.",
+    "sessionExpired": "Session expired. Please log in again."
+  }
+}

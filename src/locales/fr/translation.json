@@ -1,0 +1,89 @@
+{
+  "app": {
+    "title": "Système d'Enchères de Taxi",
+    "slogan": "Trouvez votre trajet parfait avec des offres compétitives"
+  },
+  "location": {
+    "pickup": "Lieu de Prise en Charge",
+    "dropoff": "Lieu de Dépose",
+    "detectMyLocation": "Détecter Ma Position",
+    "enterPickupLocation": "Saisir le lieu de prise en charge",
+    "enterDropoffLocation": "Saisir le lieu de dépose",
+    "searchingLocation": "Recherche de l'emplacement...",
+    "locationDetected": "Emplacement détecté",
+    "locationError": "Erreur lors de la détection de l'emplacement"
+  },
+  "booking": {
+    "findRide": "Trouver un Trajet",
+    "bookNow": "Réserver Maintenant",
+    "selectRide": "Sélectionner un Trajet",
+    "rideDetails": "Détails du Trajet",
+    "estimatedTime": "Temps Estimé",
+    "distance": "Distance",
+    "fare": "Tarif",
+    "driverDetails": "Détails du Conducteur",
+    "vehicleDetails": "Détails du Véhicule",
+    "bookingConfirmed": "Réservation Confirmée",
+    "bookingCancelled": "Réservation Annulée"
+  },
+  "driver": {
+    "name": "Nom du Conducteur",
+    "rating": "Note",
+    "experience": "Expérience",
+    "vehicleType": "Type de Véhicule",
+    "vehicleNumber": "Numéro de Véhicule",
+    "arrivalTime": "Heure d'Arrivée",
+    "contact": "Contact",
+    "years": "ans"
+  },
+  "bidding": {
+    "availableRides": "Trajets Disponibles",
+    "noBidsYet": "Aucune enchère pour le moment",
+    "waitingForBids": "En attente d'enchères...",
+    "bidsReceived": "Enchères reçues",
+    "selectBestOffer": "Sélectionner la meilleure offre",
+    "bidExpired": "Enchère expirée",
+    "bidAccepted": "Enchère acceptée",
+    "bidRejected": "Enchère rejetée"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "back": "Retour",
+    "next": "Suivant",
+    "save": "Enregistrer",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "refresh": "Actualiser",
+    "close": "Fermer",
+    "ok": "OK",
+    "yes": "Oui",
+    "no": "Non",
+    "minutes": "minutes",
+    "hours": "heures",
+    "km": "km",
+    "currency": "€"
+  },
+  "notifications": {
+    "newBid": "Nouvelle enchère reçue",
+    "rideConfirmed": "Trajet confirmé",
+    "rideStarted": "Trajet commencé",
+    "rideCompleted": "Trajet terminé",
+    "paymentPending": "Paiement en attente",
+    "paymentCompleted": "Paiement terminé"
+  },
+  "errors": {
+    "networkError": "Erreur réseau. Veuillez vérifier votre connexion.",
+    "locationPermission": "L'autorisation de localisation est requise pour détecter votre position",
+    "invalidLocation": "Emplacement invalide",
+    "bookingFailed": "Échec de la réservation. Veuillez réessayer.",
+    "noBidsReceived": "Aucune enchère reçue. Veuillez réessayer.",
+    "sessionExpired": "Session expirée. Veuillez vous reconnecter."
+  }
+}
