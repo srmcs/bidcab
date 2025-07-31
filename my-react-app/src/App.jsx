@@ -25,6 +25,7 @@ const [showBids, setShowBids] = useState(false)
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [isUserDropdownOpen, setUserDropdownOpen] = useState(false)
+  const [showSettings, setShowSettings] = useState(false)
 
   useEffect(() => {
     // Check if user is already logged in
@@ -32,7 +33,22 @@ const [showBids, setShowBids] = useState(false)
     if (token) {
       fetchUserProfile(token)
     }
+    
+    // Load dark mode preference
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true'
+    setIsDarkMode(savedDarkMode)
   }, [])
+
+  // Apply dark mode to body
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark')
+    } else {
+      document.body.classList.remove('dark')
+    }
+    // Save preference
+    localStorage.setItem('darkMode', isDarkMode.toString())
+  }, [isDarkMode])
 
   const fetchUserProfile = async (token) => {
     try {
@@ -172,6 +188,7 @@ const [showBids, setShowBids] = useState(false)
               <li><a href="#">🏠 Home</a></li>
               <li><a href="#">👤 Profile</a></li>
               <li><a href="#">🎯 Bids</a></li>
+              <li><a href="#" onClick={() => setShowSettings(!showSettings)}>⚙️ Settings</a></li>
             </ul>
             <div className="user-dropdown">
               <div 
@@ -219,30 +236,75 @@ const [showBids, setShowBids] = useState(false)
           <div className="bid-section">
             <h2>Request a Cab</h2>
             <form onSubmit={handleBidSubmit} className="bid-form">
-              <div className="form-group">
-                <label htmlFor="pickup">Pickup Location:</label>
-                <input
-                  type="text"
-                  id="pickup"
-                  value={pickup}
-                  onChange={(e) => setPickup(e.target.value)}
-                  placeholder="Enter pickup location"
-                  required
-                />
+              <div className="location-inputs-container">
+                <div className="form-group pickup-group">
+                  <label htmlFor="pickup" className="location-label">
+                    <span className="label-icon">📍</span>
+                    Pickup Location
+                  </label>
+                  <div className="input-wrapper">
+                    <input
+                      type="text"
+                      id="pickup"
+                      value={pickup}
+                      onChange={(e) => setPickup(e.target.value)}
+                      placeholder="Where are you?"
+                      required
+                      className="location-input pickup-input"
+                    />
+                    <div className="location-icon" onClick={() => {
+                      if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition((position) => {
+                          // For demo purposes, we'll just set a placeholder text
+                          // In a real app, you'd reverse geocode the coordinates
+                          setPickup(`Current Location (${position.coords.latitude.toFixed(4)}, ${position.coords.longitude.toFixed(4)})`);
+                        }, (error) => {
+                          console.error('Error getting location:', error);
+                          setError('Unable to get your location. Please enter manually.');
+                        });
+                      } else {
+                        setError('Geolocation is not supported by this browser.');
+                      }
+                    }}>
+                      📍
+                    </div>
+                    <div className="input-underline"></div>
+                  </div>
+                </div>
+                
+                <div className="location-divider">
+                  <div className="divider-line"></div>
+                  <div className="divider-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div className="divider-line"></div>
+                </div>
+                
+                <div className="form-group drop-group">
+                  <label htmlFor="drop" className="location-label">
+                    <span className="label-icon">🎯</span>
+                    Drop Location
+                  </label>
+                  <div className="input-wrapper">
+                    <input
+                      type="text"
+                      id="drop"
+                      value={drop}
+                      onChange={(e) => setDrop(e.target.value)}
+                      placeholder="Where to go?"
+                      required
+                      className="location-input drop-input"
+                    />
+                    <div className="input-underline"></div>
+                  </div>
+                </div>
               </div>
-              <div className="form-group">
-                <label htmlFor="drop">Drop Location:</label>
-                <input
-                  type="text"
-                  id="drop"
-                  value={drop}
-                  onChange={(e) => setDrop(e.target.value)}
-                  placeholder="Enter drop location"
-                  required
-                />
-              </div>
-              <button type="submit" disabled={loading} className="btn-primary">
-                {loading ? 'Getting Bids...' : 'Get Bids'}
+              
+              <button type="submit" disabled={loading} className="btn-primary get-bids-btn">
+                <span className="btn-icon">🚗</span>
+                <span className="btn-text">{loading ? 'Getting Bids...' : 'Get Bids'}</span>
               </button>
             </form>
           </div>

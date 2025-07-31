@@ -87,6 +87,7 @@ function App() {
   // Menubar state
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenuItem, setActiveMenuItem] = useState('home');
+  const [currentPage, setCurrentPage] = useState('home');
   
   // App state
   const [pickup, setPickup] = useState({ coords: null, address: '' });
@@ -443,96 +444,59 @@ function App() {
 
   return (
     <div className="App">
-      <nav className="app-menubar">
+      {/* Menubar */}
+      <div className="app-menubar">
         <div className="menubar-container">
-          <div className="menubar-brand">
-            <span className="brand-text">BidCab</span>
+          <div className="app-logo">
+            🚕 BidCab
           </div>
-          
-          {/* Hamburger Menu Button for Mobile */}
+          <nav className="menubar-nav">
+            <ul>
+              <li>
+                <a 
+                  href="#" 
+                  className={currentPage === 'home' ? 'active' : ''} 
+                  onClick={(e) => { e.preventDefault(); setCurrentPage('home'); }}
+                >
+                  🏠 Home
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#" 
+                  className={currentPage === 'profile' ? 'active' : ''} 
+                  onClick={(e) => { e.preventDefault(); setCurrentPage('profile'); }}
+                >
+                  👤 Profile
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#" 
+                  className={currentPage === 'rides' ? 'active' : ''} 
+                  onClick={(e) => { e.preventDefault(); setCurrentPage('rides'); }}
+                >
+                  🚗 My Rides
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#" 
+                  className={currentPage === 'bids' ? 'active' : ''} 
+                  onClick={(e) => { e.preventDefault(); setCurrentPage('bids'); }}
+                >
+                  💰 Bids
+                </a>
+              </li>
+            </ul>
+          </nav>
           <button 
-            className={`hamburger ${isMenuOpen ? 'active' : ''}`}
-            onClick={toggleMenu}
-            aria-label="Toggle navigation menu"
+            className="menubar-logout" 
+            onClick={handleLogout}
           >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-          
-          {/* Desktop Navigation */}
-          <ul className={`menubar-nav ${isMenuOpen ? 'mobile-open' : ''}`}>
-            <li>
-              <a 
-                href="#home" 
-                className={activeMenuItem === 'home' ? 'active' : ''}
-                onClick={() => handleMenuClick('home')}
-              >
-                🏠 Home
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#profile" 
-                className={activeMenuItem === 'profile' ? 'active' : ''}
-                onClick={() => handleMenuClick('profile')}
-              >
-                👤 Profile
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#rides" 
-                className={activeMenuItem === 'rides' ? 'active' : ''}
-                onClick={() => handleMenuClick('rides')}
-              >
-                🚗 My Rides
-              </a>
-            </li>
-            <li>
-              <a 
-                href="#bids" 
-                className={activeMenuItem === 'bids' ? 'active' : ''}
-                onClick={() => handleMenuClick('bids')}
-              >
-                💰 Bids
-              </a>
-            </li>
-            <li>
-              <button 
-                className="menubar-logout" 
-                onClick={handleLogout}
-                title="Logout"
-              >
-                🚪 Logout
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div className="app-header">
-        <div className="app-logo-section">
-          <button onClick={toggleTheme}>
-            Switch to {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+            🚪 Logout
           </button>
         </div>
-        <div className="user-info">
-          {user.picture && (
-            <img 
-              src={user.picture} 
-              alt="User Avatar" 
-              className="user-avatar"
-            />
-          )}
-          <span>Welcome, {user.name}!</span>
-          <button onClick={handleLogout} className="logout-btn">
-            Logout
-          </button>
-        </div>
-      </div>
-      <div className="app-title-section">
-        <h2>BidCab India</h2>
-        <p className="app-tagline">Your Ride, Your Price</p>
       </div>
 
       <div>

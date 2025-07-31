@@ -1,3 +1,19 @@
+/* Location Icon */
+.location-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #4285f4;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.location-icon:hover {
+  color: #285aeb;
+}
+
 /* Global Styles */
 * {
   margin: 0;
@@ -13,6 +29,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+body.dark .container {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark .menubar {
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
 }
 
 .app {
@@ -442,18 +473,207 @@ body {
   background: #f8f9fa;
   margin: 20px;
   border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 .bid-section h2 {
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: 1.8rem;
+  text-align: center;
+  font-weight: 700;
 }
 
 .bid-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
+}
+
+/* Location Inputs Container */
+.location-inputs-container {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8eaed;
+  position: relative;
+}
+
+/* Form Groups */
+.pickup-group,
+.drop-group {
+  position: relative;
+  margin-bottom: 0;
+}
+
+/* Location Label */
+.location-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5f6368;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.label-icon {
+  font-size: 1rem;
+}
+
+.pickup-group .label-icon {
+  color: #4285f4;
+}
+
+.drop-group .label-icon {
+  color: #ea4335;
+}
+
+/* Input Wrapper */
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Location Input */
+.location-input {
+  width: 100%;
+  padding: 16px 0 16px 0;
+  padding-right: 40px; /* Added padding for icon */
+  font-size: 1.1rem;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #202124;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  resize: none;
+  min-height: auto;
+  overflow: hidden;
+}
+
+.location-input::placeholder {
+  color: #9aa0a6;
+  font-weight: 400;
+}
+
+.location-input:focus::placeholder {
+  color: transparent;
+}
+
+/* Input Underline */
+.input-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e8eaed;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #4285f4;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+}
+
+.pickup-input:focus + .input-underline::after {
+  width: 100%;
+  background: #4285f4;
+}
+
+.drop-input:focus + .input-underline::after {
+  width: 100%;
+  background: #ea4335;
+}
+
+/* Location Divider */
+.location-divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #dadce0, transparent);
+}
+
+.divider-dots {
+  display: flex;
+  gap: 4px;
+  margin: 0 15px;
+}
+
+.divider-dots span {
+  width: 4px;
+  height: 4px;
+  background: #dadce0;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.divider-dots span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.divider-dots span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Enhanced Get Bids Button */
+.get-bids-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  margin-top: 15px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.get-bids-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.get-bids-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+.btn-text {
+  font-weight: 600;
 }
 
 /* Bids Section */
@@ -528,10 +748,249 @@ body {
   font-size: 1rem;
 }
 
+/* User Dropdown Styles */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-avatar {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.user-avatar:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.user-initials {
+  display: block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  min-width: 220px;
+  z-index: 1000;
+  margin-top: 8px;
+  border: 1px solid #e8eaed;
+  overflow: hidden;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+  background: #f8f9fa;
+}
+
+.user-info {
+  background: #f8f9fa;
+  cursor: default;
+}
+
+.user-info:hover {
+  background: #f8f9fa;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #e8eaed;
+  margin: 0;
+}
+
+.toggle-item {
+  padding: 12px 16px;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #667eea;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.logout-item {
+  color: #dc3545;
+  border-top: 1px solid #e8eaed;
+}
+
+.logout-item:hover {
+  background: #fff5f5;
+}
+
+/* Menu styles for better mobile experience */
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.menu li {
+  margin: 0;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 16px;
+  display: block;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Hamburger menu styles */
+.line {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .app {
     padding: 10px;
+  }
+  
+  .container {
+    border-radius: 15px;
+  }
+  
+  .bid-section {
+    margin: 15px;
+    padding: 20px;
+  }
+  
+  .location-inputs-container {
+    padding: 20px;
+  }
+  
+  .location-input {
+    font-size: 1rem;
+    padding: 14px 0;
+  }
+  
+  .get-bids-btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+  
+  .menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    flex-direction: column;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .menu a {
+    padding: 15px 20px;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+  
+  .menu li:last-child a {
+    border-bottom: none;
+  }
+  
+  .dropdown-menu {
+    position: fixed;
+    right: 15px;
+    min-width: 200px;
   }
   
   .header {
@@ -563,6 +1022,282 @@ body {
   .btn-secondary {
     width: 100%;
     margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 5px;
+  }
+  
+  .container {
+    border-radius: 10px;
+  }
+  
+  .bid-section {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .bid-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .location-inputs-container {
+    padding: 15px;
+  }
+  
+  .location-label {
+    font-size: 0.8rem;
+  }
+  
+  .location-input {
+    font-size: 0.95rem;
+    padding: 12px 0;
+  }
+  
+  .location-divider {
+    margin: 15px 0;
+  }
+  
+  .get-bids-btn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+  
+  .dropdown-menu {
+    right: 10px;
+    min-width: 180px;
+  }
+  
+  .dropdown-item {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .auth-container {
+    padding: 15px;
+  }
+  
+  .auth-container h1 {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Dark Mode Comprehensive Styles */
+body.dark .auth-container h1 {
+  color: #e0e0e0;
+}
+
+body.dark .subtitle {
+  color: #a0a0a0;
+}
+
+body.dark .auth-form {
+  background: #2d2d2d;
+  border: 1px solid #404040;
+}
+
+body.dark .auth-form h2 {
+  color: #e0e0e0;
+}
+
+body.dark .form-group label {
+  color: #e0e0e0;
+}
+
+body.dark .form-group input {
+  background: #404040;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+body.dark .form-group input:focus {
+  border-color: #667eea;
+  background: #4a4a4a;
+}
+
+body.dark .form-group small {
+  color: #a0a0a0;
+}
+
+body.dark .bid-section {
+  background: #2d2d2d;
+  border: 1px solid #404040;
+}
+
+body.dark .bid-section h2 {
+  color: #e0e0e0;
+}
+
+body.dark .location-inputs-container {
+  background: #404040;
+  border-color: #555;
+}
+
+body.dark .location-label {
+  color: #a0a0a0;
+}
+
+body.dark .location-input {
+  color: #e0e0e0;
+}
+
+body.dark .location-input::placeholder {
+  color: #777;
+}
+
+body.dark .input-underline {
+  background: #555;
+}
+
+body.dark .divider-line {
+  background: linear-gradient(90deg, transparent, #555, transparent);
+}
+
+body.dark .divider-dots span {
+  background: #777;
+}
+
+body.dark .bids-section h2 {
+  color: #e0e0e0;
+}
+
+body.dark .bid-card {
+  background: #404040;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+body.dark .bid-card:hover {
+  border-color: #667eea;
+  background: #4a4a4a;
+}
+
+body.dark .bid-card h3 {
+  color: #e0e0e0;
+}
+
+body.dark .bid-card p {
+  color: #a0a0a0;
+}
+
+body.dark .features {
+  background: #2d2d2d;
+  border: 1px solid #404040;
+}
+
+body.dark .features h3 {
+  color: #e0e0e0;
+}
+
+body.dark .features li {
+  color: #a0a0a0;
+}
+
+body.dark .error {
+  background: #4a1e1e;
+  color: #ff6b6b;
+  border-color: #6d2d2d;
+}
+
+body.dark .success {
+  background: #1e4a1e;
+  color: #4ade80;
+  border-color: #2d6d2d;
+}
+
+body.dark .dropdown-menu {
+  background: #404040;
+  border-color: #555;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .dropdown-item {
+  color: #e0e0e0;
+}
+
+body.dark .dropdown-item:hover {
+  background: #4a4a4a;
+}
+
+body.dark .user-info {
+  background: #4a4a4a;
+}
+
+body.dark .user-info:hover {
+  background: #4a4a4a;
+}
+
+body.dark .user-name {
+  color: #90caf9;
+}
+
+body.dark .dropdown-divider {
+  background: #555;
+}
+
+body.dark .logout-item {
+  color: #ff6b6b;
+  border-top-color: #555;
+}
+
+body.dark .logout-item:hover {
+  background: #4a2d2d;
+}
+
+body.dark .slider {
+  background-color: #555;
+}
+
+body.dark input:checked + .slider {
+  background-color: #667eea;
+}
+
+body.dark .btn-secondary {
+  background: #404040;
+  color: #90caf9;
+  border-color: #667eea;
+}
+
+body.dark .btn-secondary:hover {
+  background: #667eea;
+  color: white;
+}
+
+body.dark .loading {
+  border-color: #555;
+  border-top-color: #667eea;
+}
+
+/* Dark Mode Menu Styles */
+body.dark .menu {
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+body.dark .hamburger {
+  color: white;
+}
+
+body.dark .hamburger:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode Responsive Styles */
+@media (max-width: 768px) {
+  body.dark .menu {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  }
+  
+  body.dark .dropdown-menu {
+    background: #404040;
+    border-color: #555;
   }
 }
 
